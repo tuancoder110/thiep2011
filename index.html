@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khu Vườn Bí Mật 20/11</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- LOADING SCREEN -->
+    <section id="loadingScreen" class="screen">
+
+        <div class="bg-petals" aria-hidden="true">
+            <span>🌸</span><span>🌷</span><span>✨</span><span>🌼</span>
+            <span>🌸</span><span>💮</span><span>✨</span><span>🌷</span>
+            <span>🌼</span><span>🌸</span>
+        </div>
+
+        <div class="loading-content">
+
+            <div class="loading-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <h1>Đang chuẩn bị trò chơi</h1>
+
+            <p>Một trò chơi nhỏ dành tặng thầy cô đang được chuẩn bị...</p>
+
+            <div class="progress-container">
+                <div id="progressFill"></div>
+            </div>
+
+            <span id="progressNumber">0%</span>
+
+            <p id="loadingCaption">
+                Đang chuẩn bị những lời chúc tốt đẹp nhất...
+            </p>
+
+        </div>
+
+        <!-- XÁC THỰC VÂN TAY -->
+        <div id="unlockArea" class="unlock-area hidden">
+
+            <h2>kiểm tra thân phận</h2>
+
+            <div id="fingerprint" class="fingerprint" tabindex="0">
+                <div id="fingerprintProgress"></div>
+                <i class="fa-solid fa-fingerprint"></i>
+            </div>
+
+            <p id="fingerprintInstruction">
+                Nhấn giữ để xác nhận
+            </p>
+
+            <div class="hold-container">
+                <div id="holdProgress"></div>
+            </div>
+
+        </div>
+
+        <div id="completedArea" class="completed-area">
+
+            <i class="fa-solid fa-star"></i>
+
+            <h2>Xác nhận thành công!</h2>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- KHU VƯỜN 20/11 -->
+    <section id="gardenScreen" class="screen hidden">
+
+        <header class="garden-header">
+
+            <p>lớp 10A11</p>
+
+            <h1>Khu Vườn Tri Ân 20/11</h1>
+
+            <h2>Bốn thử thách nhỏ, bốn lời chúc gửi thầy cô</h2>
+
+            <div class="ornament-divider" aria-hidden="true">
+                <span></span><i>❀</i><span></span>
+            </div>
+
+            <p>
+                Hoàn thành các trò chơi để khám phá món quà tri ân nhé!
+            </p>
+
+            <div class="garden-progress">
+
+                <span id="gameCount">
+                    0 / 4 trò chơi hoàn thành
+                </span>
+
+                <div class="garden-progress-bar">
+                    <div id="gardenProgress"></div>
+                </div>
+
+            </div>
+
+        
+        <main class="garden-world">
+
+            <div class="garden-sun"></div>
+
+            <div class="garden-cloud cloud-one"></div>
+            <div class="garden-cloud cloud-two"></div>
+
+            <div class="garden-hill hill-back"></div>
+            <div class="garden-hill hill-front"></div>
+
+            <div class="garden-path"></div>
+
+            <div class="garden-decorations">
+                <span>📚</span>
+                <span>✏️</span>
+                <span>🍎</span>
+                <span>🎓</span>
+            </div>
+
+
+            <!-- CẢNH QUAN TRANG TRÍ -->
+            <div class="garden-scenery" aria-hidden="true">
+                <span class="sc tree t1">🌳</span>
+                <span class="sc tree t2">🌲</span>
+                <span class="sc tree t3">🌳</span>
+                <span class="sc bush b1">🌿</span>
+                <span class="sc bush b2">🍀</span>
+                <span class="sc bush b3">🌿</span>
+                <span class="sc bush b4">🍀</span>
+                <span class="sc gf g1">🌷</span>
+                <span class="sc gf g2">🌼</span>
+                <span class="sc gf g3">🌸</span>
+                <span class="sc gf g4">🌻</span>
+                <span class="sc gf g5">🌷</span>
+                <span class="sc gf g6">🌼</span>
+                <span class="sc fly f1">🦋</span>
+                <span class="sc fly f2">🐝</span>
+                <span class="sc fly f3">🦋</span>
+                
+                <span class="sc twinkle k1">✨</span>
+                <span class="sc twinkle k2">✨</span>
+                <span class="sc twinkle k3">✨</span>
+                <span class="sc twinkle k4">✨</span>
+                <span class="sc twinkle k5">✨</span>
+                <span class="sc petal p1">🌸</span>
+                <span class="sc petal p2">🌸</span>
+                <span class="sc petal p3">🌸</span>
+                <span class="sc petal p4">🌸</span>
+                <span class="sc petal p5">🌸</span>
+            </div>
+
+
+            <!-- BỐN BÔNG HOA -->
+            <div class="flower-garden">
+
+                <button class="garden-flower flower-one" data-game="0">
+
+                    <span class="flower-emoji">📚</span>
+
+                    <span class="flower-label">
+                        Tìm cặp tri thức
+                    </span>
+
+                    <span class="flower-status">
+                        Chưa chơi
+                    </span>
+
+                </button>
+
+
+                <button class="garden-flower flower-two" data-game="1">
+
+                    <span class="flower-emoji">🎨</span>
+
+                    <span class="flower-label">
+                        Ghi nhớ màu
+                    </span>
+
+                    <span class="flower-status">
+                        Chưa chơi
+                    </span>
+
+                </button>
+
+
+                <button class="garden-flower flower-three" data-game="2">
+
+                    <span class="flower-emoji">⭐</span>
+
+                    <span class="flower-label">
+                        Gom sao tri thức
+                    </span>
+
+                    <span class="flower-status">
+                        Chưa chơi
+                    </span>
+
+                </button>
+
+
+                <button class="garden-flower flower-four" data-game="3">
+
+                    <span class="flower-emoji">💌</span>
+
+                    <span class="flower-label">
+                        Hoàn thiện lời tri ân
+                    </span>
+
+                    <span class="flower-status">
+                        Chưa chơi
+                    </span>
+
+                </button>
+
+            </div>
+
+
+            <div class="garden-sign">
+
+                <span>🎓</span>
+
+                <div>
+                    <strong>Vườn Hoa Tri Ân</strong>
+                    <small>20 · 11 · 2026</small>
+                </div>
+
+            </div>
+
+        </main>
+
+
+        <footer class="garden-footer">
+            <p>TUẤN - TRÍ - KHÔI</p>
+        </footer>
+
+    </section>
+
+
+    <!-- KHUNG MINIGAME -->
+    <div id="gameModal" class="game-modal">
+
+        <div class="game-box">
+
+            <button id="closeGame" class="game-close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div id="gameContent"></div>
+
+        </div>
+
+    </div>
+
+    <div id="wishModal" class="wish-modal">
+
+        <div class="wish-card">
+
+            <div class="wish-decoration">
+                📚 ✨ 🌷
+            </div>
+
+            <h2 id="wishTitle">
+                Hoàn thành!
+            </h2>
+
+            <div id="wishIcon" class="wish-icon">
+                💌
+            </div>
+
+            <p id="wishText"></p>
+
+            <button id="wishContinue">
+                Trở về khu vườn
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- LỜI MỜI CÔ TƯƠNG TÁC -->
+    <div id="inviteModal" class="wish-modal">
+
+        <div class="wish-card final-card invite-card">
+
+            <div class="wish-decoration">🌷 📚 ✨</div>
+
+            <div class="final-flowers">🎁</div>
+
+            <h2>Thử thách đã hoàn thành!</h2>
+
+            <p>
+                Bốn trò chơi đã khép lại và một món quà nhỏ đã được chuẩn bị.
+                Xin mời cô nhấn nút bên dưới để mở tấm thiệp tri ân đặc biệt nhéeeeeeeeeeee
+            </p>
+
+            <button id="inviteTeacher" class="complete-invite-button">
+                Hoàn thành – Mời cô tương tác
+                <i class="fa-solid fa-envelope-open-text"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- TẤM THIỆP CHÚC MỪNG 20/11 -->
+    <div id="greetingCardModal" class="wish-modal">
+
+        <div class="wish-card final-card greeting-card">
+
+            <span class="corner c-tl" aria-hidden="true">🌸</span>
+            <span class="corner c-tr" aria-hidden="true">🌸</span>
+            <span class="corner c-bl" aria-hidden="true">🌷</span>
+            <span class="corner c-br" aria-hidden="true">🌷</span>
+            <div class="card-confetti" aria-hidden="true">
+                <span>🌸</span><span>✨</span><span>🌼</span><span>💮</span>
+                <span>✨</span><span>🌸</span><span>🌷</span><span>✨</span>
+            </div>
+
+            <div class="card-topline">A MESSAGE FROM THE HEART</div>
+            <div class="card-flower-decoration">🌸 ❀ 🌸</div>
+
+            <p class="card-date">20 · 11 · 2026</p>
+
+            <h2>Chúc mừng Ngày Nhà giáo Việt Nam</h2>
+            <h3 class="card-main-title">Tri ân cô</h3>
+
+            <div class="final-flowers">💐</div>
+
+            <p class="card-message">
+                Nhân ngày 20/11, em xin gửi đến cô lời tri ân chân thành và sâu sắc nhất.
+                Cảm ơn cô đã tận tụy truyền đạt tri thức, kiên nhẫn dìu dắt
+                và chắp cánh cho những ước mơ của bao thế hệ học trò.
+                
+                Kính chúc cô luôn mạnh khỏe, hạnh phúc, giữ mãi nhiệt huyết
+                với nghề và tiếp tục là người truyền cảm hứng trên hành trình gieo mầm tri thức.
+            </p>
+
+            <div class="final-signature">
+                chúng em xin cảm ơn cô
+            </div>
+
+            <button id="finalClose">
+                Đóng thiệp
+                <i class="fa-solid fa-heart"></i>
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
